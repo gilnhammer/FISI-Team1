@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="sample.Controller">
+  <tabs>
+    <Tab text="Start">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="34.0" prefHeight="74.0" prefWidth="157.0" text="Temperatur:" />
+                  <Label layoutX="14.0" layoutY="108.0" prefHeight="74.0" prefWidth="157.0" text="Luftdruck:" />
+                  <Label layoutX="14.0" layoutY="182.0" prefHeight="74.0" prefWidth="157.0" text="Luftfeuchtigkeit:" />
+                  <Label layoutX="14.0" layoutY="256.0" prefHeight="74.0" prefWidth="157.0" text="Zustand:" />
+                  <Label fx:id="Start_Temp_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="34.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Start_Luftdruck_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Start_Luftfeuchtigkeit_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Luftfeuchtigkeit_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Start_Zustand_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Zustand_Anzeige" textAlignment="CENTER" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Temperatur">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="34.0" prefHeight="74.0" prefWidth="157.0" text="Temperatur:" />
+                  <Label layoutX="14.0" layoutY="108.0" prefHeight="74.0" prefWidth="157.0" text="Minimal:" />
+                  <Label layoutX="14.0" layoutY="182.0" prefHeight="74.0" prefWidth="157.0" text="Maximal:" />
+                  <Label layoutX="14.0" layoutY="256.0" prefHeight="74.0" prefWidth="157.0" text="Durchschnitt:" />
+                  <Label fx:id="Temp_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="34.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Temp_Minimal" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Minimal_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Temp_Maximal" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Maximal_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Temp_Durchschnitt" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Durchschnitt_Anzeige" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Luftdruck">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="34.0" prefHeight="74.0" prefWidth="157.0" text="Luftdruck:" />
+                  <Label layoutX="14.0" layoutY="108.0" prefHeight="74.0" prefWidth="157.0" text="Minimal:" />
+                  <Label layoutX="14.0" layoutY="182.0" prefHeight="74.0" prefWidth="157.0" text="Maximal:" />
+                  <Label layoutX="14.0" layoutY="256.0" prefHeight="74.0" prefWidth="157.0" text="Durchschnitt:" />
+                  <Label fx:id="Luftdruck_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="34.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Luftdruck_Minimal" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Minimal_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Luftdruck_Maximal" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Maximal_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Luftdruck_Durchschnitt" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Durchschnitt_Anzeige" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Lichtstärke">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="34.0" prefHeight="74.0" prefWidth="157.0" text="Lichtstärke:" />
+                  <Label layoutX="14.0" layoutY="108.0" prefHeight="74.0" prefWidth="157.0" text="Minimal:" />
+                  <Label layoutX="14.0" layoutY="182.0" prefHeight="74.0" prefWidth="157.0" text="Maximal:" />
+                  <Label layoutX="14.0" layoutY="256.0" prefHeight="74.0" prefWidth="157.0" text="Durchschnitt:" />
+                  <Label fx:id="Licht_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="34.0" prefHeight="74.0" prefWidth="335.0" text="Lichtstärke_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Licht_Minimal" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Lichtstärke_Minimal_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Licht_Maximal" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Lichtstärke_Maximal_Anzeige" textAlignment="CENTER" />
+                  <Label fx:id="Licht_Durchschnitt" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Lichtstärke_Durchschnitt_Anzeige" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Temperatur Graph">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <LineChart layoutX="77.0" layoutY="25.0" prefHeight="317.0" prefWidth="446.0" title="Temperatur (letzte 5 Min)">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Luftfeucht. Graph">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <LineChart layoutX="77.0" layoutY="25.0" prefHeight="317.0" prefWidth="446.0" title="Luftfeuchtigkeit (letzte 5 Min)">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </LineChart>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
