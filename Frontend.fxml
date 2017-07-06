@@ -77,7 +77,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <LineChart layoutX="77.0" layoutY="25.0" prefHeight="317.0" prefWidth="446.0" title="Temperatur (letzte 5 Min)">
+                  <LineChart fx:id="Temp_Graph" layoutX="77.0" layoutY="25.0" prefHeight="317.0" prefWidth="446.0" title="Temperatur (letzte 5 Min)">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -89,7 +89,7 @@
             </AnchorPane>
          </content>
       </Tab>
-      <Tab text="Luftfeucht. Graph">
+      <Tab fx:id="Luftfeuchte_Graph" text="Luftfeucht. Graph">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
