@@ -6,6 +6,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 
 public class Controller {
 
@@ -25,8 +26,54 @@ public class Controller {
     @FXML
     private LineChart<?, ?> Luftfeuchte_Graph;
 
-    public void initialize() {
+    //LabelText - Start
 
+    @FXML
+    private Label Start_Temp_Anzeige;
+    @FXML
+    private Label Start_Luftdruck_Anzeige;
+    @FXML
+    private Label Start_Luftfeuchtigkeit_Anzeige;
+    @FXML
+    private Label Start_Zustand_Anzeige;
+
+    //LabelText - Temperatur
+
+    @FXML
+    private Label Temp_Anzeige;
+    @FXML
+    private Label Temp_Minimal;
+    @FXML
+    private Label Temp_Maximal;
+    @FXML
+    private Label Temp_Durchschnitt;
+
+    //LabelText - Luftdruck
+
+    @FXML
+    private Label Luftdruck_Anzeige;
+    @FXML
+    private Label Luftdruck_Minimal;
+    @FXML
+    private Label Luftdruck_Maximal;
+    @FXML
+    private Label Luftdruck_Durchschnitt;
+
+    //LabelText - Licht
+
+    @FXML
+    private Label Licht_Anzeige;
+    @FXML
+    private Label Licht_Minimal;
+    @FXML
+    private Label Licht_Maximal;
+    @FXML
+    private Label Licht_Durchschnitt;
+
+
+
+
+    public void initialize() {
 
         //TEMPERATUR GRAPH
         XYChart.Series temperatur = new XYChart.Series();    //Chart-Objekt erstellen
@@ -41,9 +88,9 @@ public class Controller {
         temperatur.getData().add(new XYChart.Data<>("9", 27));
         temperatur.getData().add(new XYChart.Data<>("10", 27));
         temperatur.getData().add(new XYChart.Data<>("11", 24));
-        temperatur.getData().add(new XYChart.Data<>("12", 23));
+        temperatur.getData().add(new XYChart.Data<>("12", -15));
         temperatur.getData().add(new XYChart.Data<>("13", 22));
-        temperatur.getData().add(new XYChart.Data<>("14", 20));
+        temperatur.getData().add(new XYChart.Data<>("14", 0));
         temperatur.getData().add(new XYChart.Data<>("15", 19));
         temperatur.getData().add(new XYChart.Data<>("16", 18));
         temperatur.getData().add(new XYChart.Data<>("17", 16));
@@ -56,7 +103,6 @@ public class Controller {
         temperatur.getData().add(new XYChart.Data<>("24", 27));
 
         Temp_Graph.getData().addAll(temperatur); //Werte auf dem Graphen anzeigen lassen
-
 
 
         //Luftfeuchtigkeit Graph
@@ -88,8 +134,25 @@ public class Controller {
 
         Luftfeuchte_Graph.getData().addAll(luftfeuchte);
 
+        Start_Temp_Anzeige.setText("20" + "°C");
+        Start_Luftdruck_Anzeige.setText("900" + " mbar");
+        Start_Luftfeuchtigkeit_Anzeige.setText("40" + "%");
+        Start_Zustand_Anzeige.setText("OK");
 
+        Temp_Anzeige.setText("20" + "°C");
+        Temp_Maximal.setText("40" + "°C");
+        Temp_Minimal.setText("10" + "°C");
+        Temp_Durchschnitt.setText("30" + "°C");
 
+        Luftdruck_Anzeige.setText("900" + " mbar");
+        Luftdruck_Minimal.setText("850" + " mbar");
+        Luftdruck_Maximal.setText("910" + " mbar");
+        Luftdruck_Durchschnitt.setText("860" + " mbar");
+
+        Licht_Anzeige.setText("20" + "lx");
+        Licht_Maximal.setText("30" + "lx");
+        Licht_Minimal.setText("10" + "lx");
+        Licht_Durchschnitt.setText("20" + "lx");
 
 
     }
