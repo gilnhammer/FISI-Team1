@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="sample.Controller">
+<TabPane id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <tabs>
-    <Tab text="Start">
+    <Tab id="button" text="Start">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane id="Start" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <Label layoutX="14.0" layoutY="34.0" prefHeight="74.0" prefWidth="157.0" text="Temperatur:" />
                   <Label layoutX="14.0" layoutY="108.0" prefHeight="74.0" prefWidth="157.0" text="Luftdruck:" />
@@ -22,26 +26,38 @@
                   <Label fx:id="Start_Luftdruck_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Anzeige" textAlignment="CENTER" />
                   <Label fx:id="Start_Luftfeuchtigkeit_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Luftfeuchtigkeit_Anzeige" textAlignment="CENTER" />
                   <Label fx:id="Start_Zustand_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Zustand_Anzeige" textAlignment="CENTER" />
+                  <ImageView fitHeight="48.0" fitWidth="128.0" layoutX="498.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@SWM_Logo_CMYK_WB_Markenname_unten_400b.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#00d6ff" layoutX="498.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M-Wetter" textAlignment="CENTER" wrappingWidth="87.3251953125" />
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab text="Temperatur">
+      <Tab id="button" text="Temperatur">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="14.0" layoutY="34.0" prefHeight="74.0" prefWidth="157.0" text="Temperatur:" />
-                  <Label layoutX="14.0" layoutY="108.0" prefHeight="74.0" prefWidth="157.0" text="Minimal:" />
-                  <Label layoutX="14.0" layoutY="182.0" prefHeight="74.0" prefWidth="157.0" text="Maximal:" />
-                  <Label layoutX="14.0" layoutY="256.0" prefHeight="74.0" prefWidth="157.0" text="Durchschnitt:" />
-                  <Label fx:id="Temp_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="34.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Anzeige" textAlignment="CENTER" />
-                  <Label fx:id="Temp_Minimal" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Minimal_Anzeige" textAlignment="CENTER" />
-                  <Label fx:id="Temp_Maximal" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Maximal_Anzeige" textAlignment="CENTER" />
-                  <Label fx:id="Temp_Durchschnitt" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Durchschnitt_Anzeige" textAlignment="CENTER" />
+                  <Label id="text" layoutX="14.0" layoutY="34.0" prefHeight="74.0" prefWidth="157.0" stylesheets="@../IdeaProjects/Frontend/src/sample/style.css" text="Temperatur:" />
+                  <Label id="text" layoutX="14.0" layoutY="108.0" prefHeight="74.0" prefWidth="157.0" text="Minimal:" />
+                  <Label id="text" layoutX="14.0" layoutY="182.0" prefHeight="74.0" prefWidth="157.0" text="Maximal:" />
+                  <Label id="text" layoutX="14.0" layoutY="256.0" prefHeight="74.0" prefWidth="157.0" text="Durchschnitt:" />
+                  <Label id="text" fx:id="Temp_Anzeige" contentDisplay="CENTER" layoutX="245.0" layoutY="34.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Anzeige" textAlignment="CENTER" />
+                  <Label id="text" fx:id="Temp_Minimal" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Minimal_Anzeige" textAlignment="CENTER" />
+                  <Label id="text" fx:id="Temp_Maximal" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Maximal_Anzeige" textAlignment="CENTER" />
+                  <Label id="text" fx:id="Temp_Durchschnitt" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Temperatur_Durchschnitt_Anzeige" textAlignment="CENTER" />
+                  <ImageView fitHeight="48.0" fitWidth="128.0" layoutX="498.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@SWM_Logo_CMYK_WB_Markenname_unten_400b.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#00d6ff" layoutX="498.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M-Wetter" textAlignment="CENTER" wrappingWidth="87.3251953125" />
                </children>
             </AnchorPane>
          </content>
       </Tab>
-      <Tab text="Luftdruck">
+      <Tab id="button" text="Luftdruck">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -53,11 +69,17 @@
                   <Label fx:id="Luftdruck_Minimal" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Minimal_Anzeige" textAlignment="CENTER" />
                   <Label fx:id="Luftdruck_Maximal" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Maximal_Anzeige" textAlignment="CENTER" />
                   <Label fx:id="Luftdruck_Durchschnitt" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Luftdruck_Durchschnitt_Anzeige" textAlignment="CENTER" />
+                  <ImageView fitHeight="48.0" fitWidth="128.0" layoutX="498.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@SWM_Logo_CMYK_WB_Markenname_unten_400b.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#00d6ff" layoutX="498.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M-Wetter" textAlignment="CENTER" wrappingWidth="87.3251953125" />
                </children>
             </AnchorPane>
          </content>
       </Tab>
-      <Tab text="Lichtstärke">
+      <Tab id="button" text="Lichtstärke">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -69,11 +91,17 @@
                   <Label fx:id="Licht_Minimal" contentDisplay="CENTER" layoutX="245.0" layoutY="108.0" prefHeight="74.0" prefWidth="335.0" text="Lichtstärke_Minimal_Anzeige" textAlignment="CENTER" />
                   <Label fx:id="Licht_Maximal" contentDisplay="CENTER" layoutX="245.0" layoutY="182.0" prefHeight="74.0" prefWidth="335.0" text="Lichtstärke_Maximal_Anzeige" textAlignment="CENTER" />
                   <Label fx:id="Licht_Durchschnitt" contentDisplay="CENTER" layoutX="245.0" layoutY="256.0" prefHeight="74.0" prefWidth="335.0" text="Lichtstärke_Durchschnitt_Anzeige" textAlignment="CENTER" />
+                  <ImageView fitHeight="48.0" fitWidth="128.0" layoutX="498.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@SWM_Logo_CMYK_WB_Markenname_unten_400b.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#00d6ff" layoutX="498.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M-Wetter" textAlignment="CENTER" wrappingWidth="87.3251953125" />
                </children>
             </AnchorPane>
          </content>
       </Tab>
-      <Tab text="Temperatur Graph">
+      <Tab id="button" text="Temperatur Graph">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -85,11 +113,16 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </LineChart>
+                  <ImageView fitHeight="43.0" fitWidth="49.0" layoutX="537.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@SWM_Logo_CMYK_WB_Markenname_unten_400b.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </content>
       </Tab>
-      <Tab fx:id="Luftfeuchte_Graph" text="Luftfeucht. Graph">
+      <Tab id="button" fx:id="Luftfeuchte_Graph" text="Luftfeucht. Graph">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -101,9 +134,18 @@
                         <NumberAxis side="LEFT" />
                      </yAxis>
                   </LineChart>
+                  <ImageView fitHeight="27.0" fitWidth="50.0" layoutX="535.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@SWM_Logo_CMYK_WB_Markenname_unten_400b.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </content>
       </Tab>
   </tabs>
+   <stylesheets>
+      <URL value="@../IdeaProjects/Frontend/src/sample/style.css" />
+      <URL value="@../IdeaProjects/Frontend/src/sample/button.css" />
+   </stylesheets>
 </TabPane>
