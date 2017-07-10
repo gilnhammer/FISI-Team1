@@ -7,12 +7,21 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import org.postgresql.ds.PGSimpleDataSource;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import static java.lang.String.valueOf;
 
 public class Controller {
 
     //Temperatur Graph - Deklarationen
     @FXML
-    private CategoryAxis xAchse;
+    private NumberAxis xAchse;
     @FXML
     private NumberAxis yAchse;
     @FXML
@@ -20,11 +29,12 @@ public class Controller {
 
     //Luftfeuchtigkeit Graph - Deklarationen
     @FXML
-    private CategoryAxis x_Achse;
+    private NumberAxis x_Achse;
     @FXML
     private NumberAxis y_Achse;
     @FXML
     private LineChart<?, ?> Luftfeuchte_Graph;
+
 
     //LabelText - Start
 
@@ -71,85 +81,107 @@ public class Controller {
     private Label Licht_Durchschnitt;
 
 
+    //Datenbank Verbindung
 
 
-    public void initialize() {
+    static Connection connection;
+
+    private static ArrayList<Double> id = new ArrayList<Double>();
+    private static ArrayList<Double> illuminance = new ArrayList<Double>();
+    private static ArrayList<Double> humidity = new ArrayList<Double>();
+    private static ArrayList<Double> airPressure = new ArrayList<Double>();
+    private static ArrayList<Double> temperature = new ArrayList<Double>();
+
+    public static void getData(int i) throws SQLException {
+        PGSimpleDataSource dataSource = new PGSimpleDataSource();
+        dataSource.setDatabaseName("WetterStation");
+        dataSource.setServerName("192.168.178.142");
+        dataSource.setPortNumber(5432);
+        dataSource.setUser("postgres");
+        dataSource.setPassword("Pa$$w0rd");
+        connection = dataSource.getConnection();
+        String simpleQueryStr = "SELECT * from wetterdaten ORDER BY id DESC LIMIT ?";
+        PreparedStatement simpleQuery = connection.prepareStatement(simpleQueryStr);
+        simpleQuery.setInt(1, i);
+        ResultSet resultSet = simpleQuery.executeQuery();
+
+        while (resultSet.next()){
+
+            id.add(resultSet.getDouble(1));
+            temperature.add(resultSet.getDouble(2));
+            airPressure.add(resultSet.getDouble(3));
+            humidity.add(resultSet.getDouble(4));
+            illuminance.add(resultSet.getDouble(5));
+
+
+
+            //System.out.println(temperature.get(x));
+
+            System.out.println("ID: " + id + " Temperatur: " + temperature + " Luftdruck: " + airPressure + " Luftfeuchtigkeit: " + humidity + " Helligkeit: " + illuminance);
+
+        }
+
+
+
+
+    }
+
+
+
+    public void initialize() throws SQLException {
+
 
         //TEMPERATUR GRAPH
         XYChart.Series temperatur = new XYChart.Series();    //Chart-Objekt erstellen
+        Temp_Graph.setCreateSymbols(false);
 
-        temperatur.getData().add(new XYChart.Data<>("1", 33)); //Chart Werte übergeben
-        temperatur.getData().add(new XYChart.Data<>("2", 30)); //xAchse: String, yAchse: Number
-        temperatur.getData().add(new XYChart.Data<>("4", 30));
-        temperatur.getData().add(new XYChart.Data<>("5", 32));
-        temperatur.getData().add(new XYChart.Data<>("6", 29));
-        temperatur.getData().add(new XYChart.Data<>("7", 28));
-        temperatur.getData().add(new XYChart.Data<>("8", 28));
-        temperatur.getData().add(new XYChart.Data<>("9", 27));
-        temperatur.getData().add(new XYChart.Data<>("10", 27));
-        temperatur.getData().add(new XYChart.Data<>("11", 24));
-        temperatur.getData().add(new XYChart.Data<>("12", -15));
-        temperatur.getData().add(new XYChart.Data<>("13", 22));
-        temperatur.getData().add(new XYChart.Data<>("14", 0));
-        temperatur.getData().add(new XYChart.Data<>("15", 19));
-        temperatur.getData().add(new XYChart.Data<>("16", 18));
-        temperatur.getData().add(new XYChart.Data<>("17", 16));
-        temperatur.getData().add(new XYChart.Data<>("18", 17));
-        temperatur.getData().add(new XYChart.Data<>("19", 19));
-        temperatur.getData().add(new XYChart.Data<>("20", 21));
-        temperatur.getData().add(new XYChart.Data<>("21", 22));
-        temperatur.getData().add(new XYChart.Data<>("22", 23));
-        temperatur.getData().add(new XYChart.Data<>("23", 24));
-        temperatur.getData().add(new XYChart.Data<>("24", 27));
+        temperatur.getData().add(new XYChart.Data<>(1, 33)); //Chart Werte übergeben
+        temperatur.getData().add(new XYChart.Data<>(2, 30)); //xAchse: String, yAchse: Number
+
 
         Temp_Graph.getData().addAll(temperatur); //Werte auf dem Graphen anzeigen lassen
 
 
         //Luftfeuchtigkeit Graph
         XYChart.Series luftfeuchte = new XYChart.Series(); //Chart-Objekt erstellen
+        Luftfeuchte_Graph.setCreateSymbols(false);
 
-        luftfeuchte.getData().add(new XYChart.Data<>("1",40));//Chart Werte übergeben
-        luftfeuchte.getData().add(new XYChart.Data<>("2",34));//xAchse: String, yAchse: Number
-        luftfeuchte.getData().add(new XYChart.Data<>("3",39));
-        luftfeuchte.getData().add(new XYChart.Data<>("4",37));
-        luftfeuchte.getData().add(new XYChart.Data<>("5",35));
-        luftfeuchte.getData().add(new XYChart.Data<>("6",34));
-        luftfeuchte.getData().add(new XYChart.Data<>("7",34));
-        luftfeuchte.getData().add(new XYChart.Data<>("8",33));
-        luftfeuchte.getData().add(new XYChart.Data<>("9",32));
-        luftfeuchte.getData().add(new XYChart.Data<>("10",35));
-        luftfeuchte.getData().add(new XYChart.Data<>("11",36));
-        luftfeuchte.getData().add(new XYChart.Data<>("12",35));
-        luftfeuchte.getData().add(new XYChart.Data<>("14",33));
-        luftfeuchte.getData().add(new XYChart.Data<>("15",31));
-        luftfeuchte.getData().add(new XYChart.Data<>("16",30));
-        luftfeuchte.getData().add(new XYChart.Data<>("17",29));
-        luftfeuchte.getData().add(new XYChart.Data<>("18",41));
-        luftfeuchte.getData().add(new XYChart.Data<>("19",42));
-        luftfeuchte.getData().add(new XYChart.Data<>("20",38));
-        luftfeuchte.getData().add(new XYChart.Data<>("21",37));
-        luftfeuchte.getData().add(new XYChart.Data<>("22",37));
-        luftfeuchte.getData().add(new XYChart.Data<>("23",36));
-        luftfeuchte.getData().add(new XYChart.Data<>("24",24));
+        luftfeuchte.getData().add(new XYChart.Data<>(1,40));//Chart Werte übergeben
+        luftfeuchte.getData().add(new XYChart.Data<>(2,34));//xAchse: String, yAchse: Number
+
 
         Luftfeuchte_Graph.getData().addAll(luftfeuchte);
 
-        Start_Temp_Anzeige.setText("20" + "°C");
-        Start_Luftdruck_Anzeige.setText("900" + " mbar");
-        Start_Luftfeuchtigkeit_Anzeige.setText("40" + "%");
-        Start_Zustand_Anzeige.setText("OK");
+        double STA = (temperature.get(0)/100);
+        Start_Temp_Anzeige.setText(String.valueOf(STA) + " °C");
 
-        Temp_Anzeige.setText("20" + "°C");
+        double SLA = (airPressure.get(0)/1000);
+        Start_Luftdruck_Anzeige.setText(String.valueOf(SLA) + " mBar");
+
+        double SLFA = (humidity.get(0)/10);
+        Start_Luftfeuchtigkeit_Anzeige.setText(String.valueOf(SLFA) + " %");
+
+        double LA = (illuminance.get(0)/100);
+
+        if (STA > 33) {
+            Start_Zustand_Anzeige.setText("ES IST ZU WARM!!");
+        }else if (STA < 0 ) {
+            Start_Zustand_Anzeige.setText("ES IST ZU KALT!!");
+        }else{
+            Start_Zustand_Anzeige.setText("ok");
+        }
+
+        Temp_Anzeige.setText(String.valueOf(STA) + "° C");
         Temp_Maximal.setText("40" + "°C");
         Temp_Minimal.setText("10" + "°C");
         Temp_Durchschnitt.setText("30" + "°C");
 
-        Luftdruck_Anzeige.setText("900" + " mbar");
+        Luftdruck_Anzeige.setText(String.valueOf(SLA) + " mBar");
         Luftdruck_Minimal.setText("850" + " mbar");
         Luftdruck_Maximal.setText("910" + " mbar");
         Luftdruck_Durchschnitt.setText("860" + " mbar");
 
-        Licht_Anzeige.setText("20" + "lx");
+        Licht_Anzeige.setText(String.valueOf(LA) + " lx");
         Licht_Maximal.setText("30" + "lx");
         Licht_Minimal.setText("10" + "lx");
         Licht_Durchschnitt.setText("20" + "lx");
