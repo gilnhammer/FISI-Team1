@@ -4,6 +4,7 @@ import com.tinkerforge.AlreadyConnectedException;
 import com.tinkerforge.NetworkException;
 import com.tinkerforge.NotConnectedException;
 import com.tinkerforge.TimeoutException;
+import javafx.concurrent.Task;
 import org.postgresql.ds.PGSimpleDataSource;
 
 import java.sql.Connection;
@@ -47,13 +48,6 @@ public class WeatherListener {
 
         WeatherListener weatherListener = new WeatherListener();
 
-        try {
-            lcdAnzeige.setLcd();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
         Timer t = new Timer();
 
         t.schedule(new TimerTask(){
@@ -73,9 +67,17 @@ public class WeatherListener {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
+
             }
 
-        }, 0, 50000); //alle 5 sekunden...
+        }, 0, 5000); //alle 5 sekunden...
+
+        try {
+            lcdAnzeige.setLcd();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -94,7 +96,6 @@ public class WeatherListener {
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-
         PGSimpleDataSource dataSource = new PGSimpleDataSource();
         dataSource.setDatabaseName("WetterStation");
         dataSource.setServerName("localhost");
@@ -102,19 +103,72 @@ public class WeatherListener {
         dataSource.setUser("postgres");
         dataSource.setPassword("Pa$$w0rd");
 
-        connection = dataSource.getConnection();
+        new Thread(new Runnable() {
+            public void run() {
 
-        String simpleUpdateStr = "insert into wetterdaten (temperatur, luftdruck, luftfeuchtigkeit, helligkeit, time) values (?,?,?,?,?)";
-        PreparedStatement simpleUpdate = connection.prepareStatement(simpleUpdateStr);
-        simpleUpdate.setDouble(1, temperatur);
-        simpleUpdate.setDouble(2, luftdruck);
-        simpleUpdate.setDouble(3, feuchtigkeit);
-        simpleUpdate.setDouble(4, helligkeit);
-        simpleUpdate.setString(5, timestamp.toString());
+                try {
+                    connection = dataSource.getConnection();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                String simpleUpdateStr = "insert into wetterdaten (temperatur, luftdruck, luftfeuchtigkeit, helligkeit, time) values (?,?,?,?,?)";
+                PreparedStatement simpleUpdate = null;
+                try {
+                    simpleUpdate = connection.prepareStatement(simpleUpdateStr);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    simpleUpdate.setDouble(1, temperatur);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    simpleUpdate.setDouble(2, luftdruck);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    simpleUpdate.setDouble(3, feuchtigkeit);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    simpleUpdate.setDouble(4, helligkeit);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    simpleUpdate.setString(5, timestamp.toString());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    int rowsModified = simpleUpdate.executeUpdate();
+                    System.out.println("Rows modified: " + rowsModified);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
 
 
-        int rowsModified = simpleUpdate.executeUpdate();
-        System.out.println("Rows modified: " + rowsModified);
+            }
+        }).start();
+
+
+
+
+
+
+
+
 
     }
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
@@ -107,7 +106,7 @@
                <children>
                   <LineChart fx:id="Temp_Graph" layoutX="77.0" layoutY="25.0" prefHeight="317.0" prefWidth="446.0" title="Temperatur (letzte 24 Std.)">
                     <xAxis>
-                      <NumberAxis side="BOTTOM" fx:id="xAchse" />
+                      <NumberAxis autoRanging="false" side="BOTTOM" fx:id="xAchse" />
                     </xAxis>
                     <yAxis>
                       <NumberAxis fx:id="yAchse" side="LEFT" />
@@ -128,7 +127,7 @@
                <children>
                   <LineChart fx:id="Luftfeuchte_Graph" layoutX="77.0" layoutY="25.0" prefHeight="317.0" prefWidth="446.0" title="Luftfeuchtigkeit (letzte 24 Std.)">
                       <xAxis>
-                          <NumberAxis side="BOTTOM" fx:id="x_Achse" />
+                          <NumberAxis autoRanging="false" side="BOTTOM" fx:id="x_Achse" />
                       </xAxis>
                       <yAxis>
                           <NumberAxis fx:id="y_Achse" side="LEFT" />
