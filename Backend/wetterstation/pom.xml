@@ -42,7 +42,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>JdbcTest</mainClass>
+                            <mainClass>WeatherStation.WeatherListener</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

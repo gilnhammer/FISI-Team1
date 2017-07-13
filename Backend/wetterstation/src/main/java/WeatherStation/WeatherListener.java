@@ -1,10 +1,9 @@
-package WatherStation;
+package WeatherStation;
 
 import com.tinkerforge.AlreadyConnectedException;
 import com.tinkerforge.NetworkException;
 import com.tinkerforge.NotConnectedException;
 import com.tinkerforge.TimeoutException;
-import javafx.concurrent.Task;
 import org.postgresql.ds.PGSimpleDataSource;
 
 import java.sql.Connection;

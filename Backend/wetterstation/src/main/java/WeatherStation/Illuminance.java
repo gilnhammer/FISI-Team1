@@ -1,4 +1,4 @@
-package WatherStation;
+package WeatherStation;
 
 import com.tinkerforge.*;
 

@@ -1,8 +1,8 @@
 /Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WeatherListener.java
-/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WatherStation/LcdAnzeige.java
 /Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/main.java
-/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WatherStation/WeatherListener.java
-/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WatherStation/Illuminance.java
-/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WatherStation/Humidity.java
+/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WeatherStation/WeatherListener.java
+/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WeatherStation/Barometer.java
+/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WeatherStation/Illuminance.java
 /Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/Buttons.java
-/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WatherStation/Barometer.java
+/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WeatherStation/LcdAnzeige.java
+/Users/tareklutz/FISI-Team1/Backend/wetterstation/src/main/java/WeatherStation/Humidity.java

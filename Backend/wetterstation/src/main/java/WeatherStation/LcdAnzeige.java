@@ -1,7 +1,6 @@
-package WatherStation;
+package WeatherStation;
 
 import com.tinkerforge.*;
-import javafx.concurrent.Task;
 import org.postgresql.ds.PGSimpleDataSource;
 
 import java.io.IOException;
@@ -12,12 +11,8 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Date;
-
-import static java.awt.SystemColor.text;
 
 /**
  * Created by tareklutz on 07.07.17.
