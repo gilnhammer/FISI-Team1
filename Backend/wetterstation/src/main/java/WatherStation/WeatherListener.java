@@ -71,7 +71,7 @@ public class WeatherListener {
 
             }
 
-        }, 0, 5000); //alle 5 sekunden...
+        }, 0, 300000); //alle 5 sekunden...
 
         try {
             lcdAnzeige.setLcd();
