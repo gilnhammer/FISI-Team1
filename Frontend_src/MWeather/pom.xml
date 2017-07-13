@@ -36,7 +36,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>JdbcTest</mainClass>
+                            <mainClass>MWeather.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
