@@ -14,10 +14,12 @@ import org.postgresql.ds.PGSimpleDataSource;
 
 import java.sql.*;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Controller {
 
@@ -112,7 +114,11 @@ public class Controller {
 
     SimpleDateFormat dateformatter = new SimpleDateFormat("HH");
 
-    DecimalFormat f = new DecimalFormat("#0.00");
+    NumberFormat f = NumberFormat.getInstance(Locale.GERMANY);
+    {
+        f.setMaximumFractionDigits(2);
+        f.setMinimumFractionDigits(2);
+    }
 
     private ZonedDateTime startofDay;
     private ZonedDateTime endofDay;
@@ -278,13 +284,13 @@ public class Controller {
 
         System.out.println("Aktuelle Temperatur: " + STA);
 
-        Start_Temp_Anzeige.setText(String.valueOf(STA) + " °C");
+        Start_Temp_Anzeige.setText(f.format(STA) + " °C");
 
         double SLA = (airPressure.get(0)/1000);
-        Start_Luftdruck_Anzeige.setText(String.valueOf(SLA) + " mBar");
+        Start_Luftdruck_Anzeige.setText(f.format(SLA) + " mBar");
 
         double SLFA = (humidity.get(0)/10);
-        Start_Luftfeuchtigkeit_Anzeige.setText(String.valueOf(SLFA) + " %");
+        Start_Luftfeuchtigkeit_Anzeige.setText(f.format(SLFA) + " %");
 
         double LA = (illuminance.get(0)/100);
 
@@ -296,20 +302,20 @@ public class Controller {
             Start_Zustand_Anzeige.setText("ok");
         }
 
-        Temp_Anzeige.setText(String.valueOf(STA) + " °C");
-        Temp_Maximal.setText(temperatureMax/100.0 + " °C");
-        Temp_Minimal.setText(temperatureMin/100 + " °C");
+        Temp_Anzeige.setText(f.format(STA) + " °C");
+        Temp_Maximal.setText(f.format(temperatureMax/100.0) + " °C");
+        Temp_Minimal.setText(f.format(temperatureMin/100.0) + " °C");
         Temp_Durchschnitt.setText(f.format(temperatureAvg/100.0) + " °C");
 
-        Luftdruck_Anzeige.setText(String.valueOf(SLA) + " mBar");
-        Luftdruck_Minimal.setText(airPressureMin/10 + " mbar");
-        Luftdruck_Maximal.setText(airPressureMax/10 + " mbar");
-        Luftdruck_Durchschnitt.setText(f.format(airPressureAvg/10) + " mbar");
+        Luftdruck_Anzeige.setText(f.format(SLA) + " mBar");
+        Luftdruck_Minimal.setText(f.format(airPressureMin/1000.0) + " mbar");
+        Luftdruck_Maximal.setText(f.format(airPressureMax/1000.0) + " mbar");
+        Luftdruck_Durchschnitt.setText(f.format(airPressureAvg/1000.0) + " mbar");
 
-        Licht_Anzeige.setText(String.valueOf(LA) + " lx");
-        Licht_Maximal.setText(illuminanceMax/100 + "lx");
-        Licht_Minimal.setText(illuminanceMin/100 + "lx");
-        Licht_Durchschnitt.setText(f.format(illuminanceAvg/100) + "lx");
+        Licht_Anzeige.setText(f.format(LA) + " lx");
+        Licht_Maximal.setText(f.format(illuminanceMax/100.0) + " lx");
+        Licht_Minimal.setText(f.format(illuminanceMin/100.0) + " lx");
+        Licht_Durchschnitt.setText(f.format(illuminanceAvg/100.0) + " lx");
 
     }
 
